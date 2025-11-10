@@ -1,6 +1,6 @@
-**Overview of the ProDev Backend Engineering program**
-## Key technologies covered:
-Python, Django, REST APIs, GraphQL, Docker, CI/CD ##
+# Overview of the ProDev Backend Engineering program #
+## Key technologies covered
+Python, Django, REST APIs, GraphQL, Docker, CI/CD 
 
 ** Important backend development concepts: **
 Database Design, Asynchronous Programming, Caching Strategies
