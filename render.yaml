@@ -1,5 +1,5 @@
 databases:
-  - name: fashionworld
+  - name: fashionworld_db
     plan: free
     databaseName: designer_wears
     user: onyiebaby
