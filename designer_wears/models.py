@@ -11,7 +11,7 @@ class Designer(models.Model):
         ('Prada', 'Prada wears'),
     )
 
-    designer_id = models.UUIDField(primary_key=True, default=uuid4)
+    designer_id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(max_length=100)
     bio = models.TextField(blank=True)
     email = models.EmailField(unique=True)
@@ -19,11 +19,11 @@ class Designer(models.Model):
 
 class Product(models.Model):
     product_id = models.UUIDField(primary_key=True, default=uuid4)
-    designer_id = models.ForeignKey(Designer, on_delete=models.CASCADE, to_field="designer_id")
-    name = models.CharField(max_length=100)
+    designer_id = models.ForeignKey(Designer, on_delete=models.CASCADE, to_field="designer_id", null =True)
+    name = models.CharField(max_length=100, null=False)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    stock = models.PositiveIntegerField(default=0)
+    stock = models.PositiveIntegerField(default=0, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
 class Customer(models.Model):
