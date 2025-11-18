@@ -1,7 +1,8 @@
-from django.urls import path
+from django.urls import path, include
 from .import views
 
 urlpatterns = [
+    path('', views.home, name='home'),
     path('designers/', views.DesignerListCreateView.as_view(), name='designer-detail'),
     path('designers/<int:pk>/', views.DesignerRetrieveUpdateDestroyView.as_view(), name='designer-detail'),
 
