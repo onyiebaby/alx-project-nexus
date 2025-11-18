@@ -1,8 +1,12 @@
 from rest_framework import generics
+from django.http import HttpResponse
 from .models import Designer, Product, Customer, Category, Order
 from .serializers import DesignerSerializer, ProductSerializer, CustomerSerializer, CategorySerializer, OrderSerializer
 
 # Create your views here.
+
+def home(request):
+    return HttpResponse("Welcome to Fashion World!")
 
 class DesignerListCreateView(generics.ListCreateAPIView):
     queryset = Designer.objects.all()
