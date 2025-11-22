@@ -1,9 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
 venv/
 env/
 
-_pycache_/
+# Environment variables
+.env
+*.env
 
+# VSCode & JetBrains
 .vscode/
 .idea/
 
-*.env
+# Django stuff
+db.sqlite3
+staticfiles/
+media/
+
+# Byte-compiled / compiled
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+
+# Backup files
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
