@@ -1,52 +1,102 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <title>Fashion World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Hello Django on Render!</title>
-
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-          crossorigin="anonymous">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'designer_wears/css/site.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<main class="container">
-    <div class="row text-center justify-content-center">
-        <div class="col">
-            <h1 class="display-4">Welcome to FashionWorld!</h1>
-        </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fw-navbar">
+    <div class="container">
+      <a class="navbar-brand fw-brand" href="{% url 'home' %}">Fashion World</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        </ul>
+
+        <a class="btn btn-light fw-login-btn" href="/accounts/login/">Login</a>
+      </div>
     </div>
-</main>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section text-center text-white">
+    <div class="container py-5">
+      <h1 class="display-4 fw-bold">Welcome to Fashion World</h1>
+      <p class="lead">Premium Designs • Modern Styles • Elevate Your Wardrobe</p>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+
+      <div class="row g-4">
+
+        <!-- SERVICE 1 -->
+        <div class="col-md-4">
+          <a href="/custom-tailoring/" class="text-decoration-none text-dark">
+            <div class="card service-card h-100">
+              <img src="{% static 'designer_wears/img/service1.png' %}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Custom Tailoring</h5>
+                <p class="card-text">Perfectly tailored outfits, made to fit your style.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- SERVICE 2 -->
+        <div class="col-md-4">
+          <a href="/ready-to-wear/" class="text-decoration-none text-dark">
+            <div class="card service-card h-100">
+              <img src="{% static 'designer_wears/img/service2.png' %}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Ready-to-Wear</h5>
+                <p class="card-text">A curated collection for classy and confident looks.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- SERVICE 3 -->
+        <div class="col-md-4">
+          <a href="/style-consultation/" class="text-decoration-none text-dark">
+            <div class="card service-card h-100">
+              <img src="{% static 'designer_wears/img/service3.png' %}" class="card-img-top">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">Style Consultation</h5>
+                <p class="card-text">Get personalised styling advice from fashion experts.</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-4 fw-footer text-center text-white">
+    <small>© 2025 Fashion World — All rights reserved.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-{% load static %}
-
-<!doctype html>
-<html lang="en">
-...
-<body>
-<header class="container mt-4 mb-4">
-    <a href="https://render.com">
-        <img src="{% static "homepage/render-banner.png" %}" alt="Homepage banner" class="mw-100">
-    </a>
-</header>
-...
-</body>
-</html>
-
-<button id="checkoutButton">Pay Now</button>
-
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-    const stripe = Stripe("{{ STRIPE_PUBLISHABLE_KEY }}");
-
-    document.getElementById("checkoutButton").addEventListener("click", function () {
-        fetch("/create-checkout-session/")
-            .then(response => response.json())
-            .then(session => stripe.redirectToCheckout({ sessionId: session.id }));
-    });
-</script>

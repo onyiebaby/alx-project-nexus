@@ -136,7 +136,8 @@ def webhook(request):
 
     return JsonResponse({'status': 'success'})
 
-
+def homepage_view(request):
+    return render(request, 'homepage/index.html')
 
             
             

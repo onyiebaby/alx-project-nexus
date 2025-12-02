@@ -3,8 +3,8 @@ from .import views
 from .views import create_checkout_session
 from .views import webhook
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('', views.home, name='home'),
+    path('', views.index, name='homepage'),
+    path('', views.home, name='homepage'),
     path('designers/', views.DesignerListCreateView.as_view(), name='designer-detail'),
     path('designers/<int:pk>/', views.DesignerRetrieveUpdateDestroyView.as_view(), name='designer-detail'),
 
@@ -20,6 +20,8 @@ urlpatterns = [
     path('orders/', views.OrderListCreateView.as_view(), name='order-list'),
     path('orders/<int:pk>/', views.OrderRetrieveUpdateDestroyView.as_view(), name='order-detail'),
 
-    path('create-checkout-session/', create_checkout_session, name='checkout')
+    path('create-checkout-session/', create_checkout_session, name='checkout'),
     path('stripe/webhook/', webhook, name='stripe-webhook'),
+
+    path('', views.index, name='index'),
 ]
